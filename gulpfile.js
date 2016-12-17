@@ -37,9 +37,12 @@ gulp.task('compass', function(){
     gulp.src(sassSources)
       .pipe(compass({
         sass: 'components/sass',
+        css:'builds/development/css',
         image : 'builds/development/images',
         style:'expanded'
     }))
       .on('error', gutil.log )
       .pipe(gulp.dest('builds/development/css'))
 });
+
+gulp.task('default', ['coffee','js','compass']);
